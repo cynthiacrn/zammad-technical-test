@@ -58,3 +58,9 @@ This structure improves maintainability and reuse across the dashboard.
 To support frontend testing, I added mock utilities for the `recentlyCreatedTickets` GraphQL query. These mocks will be used to simulate server responses during component and integration tests, ensuring the widget can be tested independently of backend dependencies. They can be found at:
 
 `app/frontend/apps/desktop/entities/ticket/graphql/queries/ticketsRecentlyCreated.mocks.ts`
+
+I wrote tests for the dashboard view to verify correct rendering and data usage. These tests are located in:
+
+`app/frontend/apps/desktop/pages/dashboard/__tests__/dashboard.spec.ts`
+
+These tests validate that the dashboard integrates properly with the widget and displays recently created tickets as expected.
