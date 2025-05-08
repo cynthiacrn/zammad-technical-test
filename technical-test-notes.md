@@ -64,3 +64,20 @@ I wrote tests for the dashboard view to verify correct rendering and data usage.
 `app/frontend/apps/desktop/pages/dashboard/__tests__/dashboard.spec.ts`
 
 These tests validate that the dashboard integrates properly with the widget and displays recently created tickets as expected.
+
+## Final Notes
+
+### Challenges & Limitations
+
+- **GraphQL (First-Time Use)**: This was my first experience using GraphQL. It required an initial learning curve to understand the syntax, how queries and mutations are structured, and how they integrate with the backend and authorization layers.
+- **Vue.js (Quick Refresher)**: I needed a quick refresher to align with best practices in Vue, particularly around the Composition API and using TypeScript effectively within components.
+- **Lack of Familiarity with Existing Architecture**: Initially, it took time to understand how the existing Vue components, GraphQL setup, and shared utilities were structured. This slowed down integration and testing.
+- **Testing Setup Complexity**: Setting up frontend tests required navigating the project’s specific test config and mocking strategies. While I eventually added proper tests, this setup process took longer than expected.
+
+### Next Steps & Improvements
+
+- **UI Enhancements**: Improve the user interface of TicketsCreatedTodayWidget.vue by adding loading indicators, empty list messages, and error handling.
+- **Internationalization (i18n)**: Add i18n support for the widget title and any user-facing strings to ensure the dashboard is accessible in multiple languages.
+- **Responsive Design**: Enhance the layout to be more responsive and mobile-friendly, especially when multiple widgets are displayed in the dashboard grid.
+- **Real-Time Updates**: Automatically refresh the ticket list when changes occur, using GraphQL subscriptions (pub/sub) or polling to reflect ticket creation in near real-time.
+- **Testing Enhancements**: Add test cases to explicitly cover the loading state of the widget and other edge cases like empty responses or error scenarios.
