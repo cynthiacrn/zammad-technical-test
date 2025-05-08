@@ -10,7 +10,7 @@ During the technical test, I prepared a local development environment using Dock
 
 I also created a `.env` file to manage environment-specific variables cleanly.
 
-## GraphQL Query
+## Backend GraphQL Query Definition
 
 As part of the test, I created a GraphQL query to fetch recently created tickets. This can be found in the following file:
 
@@ -30,3 +30,15 @@ Additionally, I created a corresponding test for this query located at:
 `spec/graphql/gql/queries/tickets/recently_created_spec.rb`
 
 This test was written using existing examples as references and leveraged available helpers to ensure consistency with the project's testing conventions.
+
+## Frontend GraphQL Query Definition
+
+To support frontend usage of the recently created tickets query, I added the API definition in:
+
+`app/frontend/apps/desktop/entities/ticket/graphql/queries/ticketsRecentlyCreated.api.ts`
+
+I also defined the required types for the query in:
+
+`app/frontend/shared/graphql/types.ts`
+
+I used this query in the dashboard view to help with debugging by displaying recently created tickets in a list.
