@@ -16971,6 +16971,41 @@
               "deprecationReason": null
             },
             {
+              "name": "ticketsRecentlyCreated",
+              "description": "Fetch tickets recently created",
+              "args": [
+                {
+                  "name": "limit",
+                  "description": "Maximum number of tickets to return",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": "8"
+                }
+              ],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "Ticket",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "ticketsRecentlyViewed",
               "description": "Fetch tickets recently viewed by the current user",
               "args": [

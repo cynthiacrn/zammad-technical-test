@@ -2827,6 +2827,8 @@ export type Queries = {
   ticketsCachedByOverview: CachedTicketConnection;
   /** Fetch recent customer tickets */
   ticketsRecentByCustomer: Array<Ticket>;
+  /** Fetch tickets recently created */
+  ticketsRecentlyCreated: Array<Ticket>;
   /** Fetch tickets recently viewed by the current user */
   ticketsRecentlyViewed: Array<Ticket>;
   /** Translations for a given locale */
@@ -3150,6 +3152,12 @@ export type QueriesTicketsCachedByOverviewArgs = {
 export type QueriesTicketsRecentByCustomerArgs = {
   customerId: Scalars['ID']['input'];
   exceptTicketInternalId?: InputMaybe<Scalars['Int']['input']>;
+  limit?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+/** All available queries */
+export type QueriesTicketsRecentlyCreatedArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
 };
 

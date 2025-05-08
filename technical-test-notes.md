@@ -22,3 +22,11 @@ The query:
 - Orders them by creation time (descending).
 - Accepts an optional `limit` argument (default: 8).
 - Restricts access to users with the `ticket.agent` permission.
+
+After implementing the query, I ran the `generate-graphql-api` script to update the auto-generated GraphQL schema accordingly.
+
+Additionally, I created a corresponding test for this query located at:
+
+`spec/graphql/gql/queries/tickets/recently_created_spec.rb`
+
+This test was written using existing examples as references and leveraged available helpers to ensure consistency with the project's testing conventions.
