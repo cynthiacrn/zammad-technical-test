@@ -1,0 +1,11 @@
+mutation ticketAIAssistanceSummarize($ticketId: ID!){
+  ticketAIAssistanceSummarize(ticketId: $ticketId){
+    summary {
+      conversationSummary
+      openQuestions
+      problem
+      suggestions
+    }
+    fingerprintMd5
+  }
+}
