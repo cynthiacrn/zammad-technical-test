@@ -1,38 +1,37 @@
 <!-- Copyright (C) 2012-2025 Zammad Foundation, https://zammad-foundation.org/ -->
 
 <script setup lang="ts">
-import { computed } from 'vue'
-
-import { QueryHandler } from '#shared/server/apollo/handler/index.ts'
 import { useSessionStore } from '#shared/stores/session.ts'
 
 import LayoutMain from '#desktop/components/layout/LayoutMain.vue'
-import { useTicketsRecentlyCreatedQuery } from '#desktop/entities/ticket/graphql/queries/ticketsRecentlyCreated.api.ts'
+import CommonWidget from '#desktop/pages/dashboard/components/CommonWidget.vue'
+import DashboardGrid from '#desktop/pages/dashboard/components/DashboardGrid.vue'
+import TicketsCreatedTodayWidget from '#desktop/pages/dashboard/components/TicketsCreatedTodayWidget.vue'
 
 const session = useSessionStore()
-
-const ticketsQuery = new QueryHandler(
-  useTicketsRecentlyCreatedQuery({ limit: 10 }),
-)
-
-const ticketsResult = ticketsQuery.result()
-const loading = ticketsQuery.loading()
-
-const tickets = computed(
-  () => ticketsResult.value?.ticketsRecentlyCreated ?? [],
-)
 </script>
 
 <template>
   <LayoutMain>
-    Hello, {{ session.user?.fullname }}!
-
-    <div v-if="loading">Loading...</div>
-
-    <ol v-else>
-      <li v-for="ticket in tickets" :key="ticket.id">
-        {{ ticket.title }}
-      </li>
-    </ol>
+    <div class="flex h-1/10 items-center justify-center text-xl font-medium">
+      Hello, {{ session.user?.fullname }}!
+    </div>
+    <DashboardGrid>
+      <CommonWidget
+        data-test-id="tickets-created-today-widget"
+        class="lg:col-span-2 lg:row-span-2"
+      >
+        <TicketsCreatedTodayWidget />
+      </CommonWidget>
+      <CommonWidget class="lg:col-span-1 lg:row-span-1" />
+      <CommonWidget class="lg:col-span-1 lg:row-span-1" />
+      <CommonWidget class="lg:col-span-2 lg:row-span-1" />
+      <CommonWidget class="lg:col-span-1 lg:row-span-2" />
+      <CommonWidget class="lg:col-span-2 lg:row-span-1" />
+      <CommonWidget class="lg:col-span-1 lg:row-span-1" />
+      <CommonWidget class="lg:col-span-1 lg:row-span-1" />
+      <CommonWidget class="lg:col-span-1 lg:row-span-1" />
+      <CommonWidget class="lg:col-span-1 lg:row-span-1" />
+    </DashboardGrid>
   </LayoutMain>
 </template>

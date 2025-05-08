@@ -42,3 +42,13 @@ I also defined the required types for the query in:
 `app/frontend/shared/graphql/types.ts`
 
 I used this query in the dashboard view to help with debugging by displaying recently created tickets in a list.
+
+### Component Architecture
+
+To keep the code DRY and modular, I introduced components to better segment logic and UI:
+
+- `TicketsCreatedTodayWidget`: handles the fetching of recently created tickets and displays them in a list with a heading. I moved the fetching logic out of the main dashboard view and into this component to better encapsulate its functionality.
+- `CommonWidget`: Wraps the widget component to provide consistent card-style UI.
+- `DashboardGrid`: I introduced this component to manage the overall dashboard layout using a bento-style grid, enabling flexible and clean placement of widgets.
+
+This structure improves maintainability and reuse across the dashboard.
