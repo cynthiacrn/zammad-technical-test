@@ -52,3 +52,9 @@ To keep the code DRY and modular, I introduced components to better segment logi
 - `DashboardGrid`: I introduced this component to manage the overall dashboard layout using a bento-style grid, enabling flexible and clean placement of widgets.
 
 This structure improves maintainability and reuse across the dashboard.
+
+## Testing
+
+To support frontend testing, I added mock utilities for the `recentlyCreatedTickets` GraphQL query. These mocks will be used to simulate server responses during component and integration tests, ensuring the widget can be tested independently of backend dependencies. They can be found at:
+
+`app/frontend/apps/desktop/entities/ticket/graphql/queries/ticketsRecentlyCreated.mocks.ts`
